@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM debian:trixie
 
 # Set default environment variables
 ENV PRODUCT=workbench_eng \
