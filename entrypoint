@@ -16,8 +16,8 @@ done
 
 
 jiri_init (){
-    export PATH="${FUCHSIA_ROOT:-$PWD}/.jiri_root/bin":$PATH
     sudo chown fuchsia:fuchsia ${FUCHSIA_ROOT:-$PWD}
+    export PATH="${FUCHSIA_ROOT:-$PWD}/.jiri_root/bin":$PATH
     jiri init -analytics-opt=false "${FUCHSIA_ROOT:-$PWD}"
     jiri import -name=integration flower https://fuchsia.googlesource.com/integration
 }
