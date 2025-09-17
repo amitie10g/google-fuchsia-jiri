@@ -1,4 +1,4 @@
-FROM debian:trixie
+FROM debian:bookworm
 
 # Set default environment variables
 ENV PRODUCT=workbench_eng \
