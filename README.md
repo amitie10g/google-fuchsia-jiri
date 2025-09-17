@@ -6,19 +6,19 @@ You need to define the Google Fuchsia source tree and [Ccache](https://ccache.de
 
 The default command is ``shell`` that brings Bash interactive shell.
 ```
-docker run -it -v <ccache dir>:/root/.cache/ccache -v <fuchsia dir>:/fuchsia amitie10g/google-fuchsia-jiri
+docker run -it -v <ccache dir>:/root/.cache/ccache -v <fuchsia dir>:/fuchsia ghcr.io/amitie10g/google-fuchsia-jiri
 ```
 
 Other command are:
 
 * ``update`` updates the Fuchsia source tree. Use this the first time you run this container.<br>It first runs ``cipd auth-login`` in order to get the source that require authentication, so you need TTY.
   ```
-  docker run -t -v <fuchsia dir>:/fuchsia amitie10g/google-fuchsia-jiri update
+  docker run -t -v <fuchsia dir>:/fuchsia ghcr.io/amitie10g/google-fuchsia-jiri update
   ```
 
 * ``build`` builds Fuchsia.
   ```
-  docker run -v <ccache dir>:/root/.cache/ccache -t -v <fuchsia dir>:/fuchsia amitie10g/google-fuchsia-jiri build
+  docker run -v <ccache dir>:/root/.cache/ccache -t -v <fuchsia dir>:/fuchsia ghcr.io/amitie10g/google-fuchsia-jiri build
   ```
   It runs:
   * ``fx set workstation.x64 --with //bundles:kitchen_sink --ccache`` 
