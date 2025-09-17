@@ -37,6 +37,6 @@ COPY entrypoint /usr/local/bin/entrypoint
 
 # Default command line: interactive shell
 WORKDIR /fuchsia
-USER 1001:1001
+USER fuchsia
 ENTRYPOINT ["entrypoint"]
 CMD ["shell"]
