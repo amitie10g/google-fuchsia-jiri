@@ -17,6 +17,7 @@ done
 
 jiri_init (){
     export PATH="${FUCHSIA_ROOT:-$PWD}/.jiri_root/bin":$PATH
+    sudo chown fuchsia:fuchsia ${FUCHSIA_ROOT:-$PWD}
     jiri init -analytics-opt=false "${FUCHSIA_ROOT:-$PWD}"
     jiri import -name=integration flower https://fuchsia.googlesource.com/integration
 }
@@ -45,9 +46,9 @@ build (){
 }
 
 flash_zedboot (){
-    # Try to create a loop device, if allowed (/dev/fuchsia by default)
-    if [[ -f "${DISK_IMG:-/fuchsia/disk.img}" ]]; then
-        if mknod -m 0660 /dev/fuchsia b 7 8 &> /dev/null; then
+    # Try to create a loop device, if allowed (/dev/ by default)
+    if [[ -f "${DISK_IMG:-//disk.img}" ]]; then
+        if mknod -m 0660 /dev/ b 7 8 &> /dev/null; then
             if losetup /dev/fuchsia "${DISK_IMG}" &> /dev/null; then
                 TARGET_DEVICE=/dev/fuchsia
             fi
