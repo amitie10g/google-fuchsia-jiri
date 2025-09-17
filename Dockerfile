@@ -28,6 +28,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     addgroup --system --gid 1001 fuchsia && \
     adduser --system --home /fuchsia --no-create-home --uid 1001 --gid 1001 --disabled-password --disabled-login fuchsia && \
+    usermod -aG sudo fuchsia
     bash -o pipefail -c "curl -s 'https://fuchsia.googlesource.com/jiri/+/HEAD/scripts/bootstrap_jiri?format=TEXT' | base64 --decode | bash -s /tmp" && \
     mv /tmp/.jiri_root/bin/* /usr/local/bin && \
     rm -fr /tmp/*
