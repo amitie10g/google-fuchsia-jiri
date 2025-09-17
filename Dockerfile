@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:22.04
 
 # Set default environment variables
 ENV PRODUCT=workbench_eng \
